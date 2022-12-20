@@ -179,12 +179,7 @@ sym_index symbol_table::gen_temp_var(sym_index type)
     if(type == void_type){
         fatal("void type in symbol table:temp");
     }
-    /*
-    stringstream temp_var;
-    temp_var << '$' <<temp_count++;
-    pool_index pool_p = pool_install(const_cast<char *>(temp_var.str().c_str()));
-
-    position_information *pos = new position_information(0,0);*/
+    
     std::string name="$"+to_string(++temp_nr);
     pool_index pool_p = pool_install(&name[0]);
     return enter_variable(pool_p,type);

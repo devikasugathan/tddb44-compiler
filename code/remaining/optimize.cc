@@ -212,13 +212,14 @@ ast_expression *ast_optimizer::fold_constants(ast_expression *node)
                 case AST_ADD:
                     return new ast_real(bop->pos, leftval + rightval);
                 case AST_SUB:
-                    return new ast_integer(bop->pos, leftval - rightval);
-                case AST_OR:
+                    return new ast_real(bop->pos, leftval - rightval);
+                /*ase AST_OR:
                     return new ast_integer(bop->pos, leftval || rightval);
-                case AST_AND:
+                //case AST_AND:
                     return new ast_integer(bop->pos, leftval && rightval);
+                    */
                 case AST_MULT:
-                    return new ast_integer(bop->pos, leftval * rightval);
+                    return new ast_real(bop->pos, leftval * rightval);
                 case AST_DIVIDE:
                     return new ast_real(bop->pos, leftval / rightval);
                 default:
